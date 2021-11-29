@@ -20,43 +20,19 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 " use the nord theme
 Plug 'arcticicestudio/nord-vim'
 
-
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/commentary.vim
 source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/editorconfig.vim
 source ~/.config/nvim/plugins/git.vim
 source ~/.config/nvim/plugins/fzf.vim
-
-" File searching
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-" Language client
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-eslint', 'coc-python']
-
-" Typescript highlighting
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-
-" Javascipt
-Plug 'jesseleite/vim-agriculture'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ruanyl/vim-sort-imports'
-
- " Styling
-Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background of hex color values to the color
-Plug 'hail2u/vim-css3-syntax', { 'for': 'css' } " CSS3 syntax support
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' } " sass scss syntax support
-
-Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
-
-" Autocloses brackets of all types
-Plug 'jiangmiao/auto-pairs'
-
-" Allows for comments for all languages
-Plug 'scrooloose/nerdcommenter'
+source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/typescript.vim
+source ~/.config/nvim/plugins/javascript.vim
+source ~/.config/nvim/plugins/styling.vim
+source ~/.config/nvim/plugins/json.vim
+source ~/.config/nvim/plugins/commenter.vim
+source ~/.config/nvim/plugins/tree.vim
 
 " File explorer with icons
 Plug 'scrooloose/nerdtree'
