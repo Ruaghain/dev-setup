@@ -12,8 +12,17 @@
 set updatetime=100
 set signcolumn=yes
 set number
-" set relativenumber
+set relativenumber
 set guifont=DroidSansMono\ Nerd\ Font\ 12
+
+set backup
+set backupdir=~/.local/share/nvim/backup//
+
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
@@ -76,7 +85,7 @@ nmap <leader>ve :edit ~/.config/nvim/init.vim<CR>
 nmap <leader>vr :source ~/.config/nvim/init.vim<CR>
 
 nnoremap <C-e> :History<CR>
-nnoremap <A-1> :NERDTreeToggle<CR>
+nnoremap <leader>1 :NERDTreeToggle<CR>
 nnoremap <C-f> :FZF<CR>
 " let g:fzf_action = {
 "  \ 'ctrl-t': 'tab split',
@@ -87,7 +96,7 @@ nnoremap <C-f> :FZF<CR>
 nmap <leader>x :!xdg-open %<CR><CR>
 map gf :edit <cfile><CR>
 
-set background=dark
+" set background=dark
 
 " Spaces & Tabs 
 set tabstop=4       " number of visual spaces per TAB
