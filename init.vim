@@ -2,7 +2,9 @@
 " 1. Mapping for tabs (navigate, new, close)
 " 2. Close terminal
 " 3. Mapping for Git
-" 
+" 4. Install projectionist and get working with tests for react.
+" 5. Go to class and method definitions
+"
 " MAPPINGS:
 " ALT-1: Toggle Tree
 " CTRL-e: Recent Files
@@ -42,13 +44,10 @@ source ~/.config/nvim/plugins/styling.vim
 source ~/.config/nvim/plugins/json.vim
 source ~/.config/nvim/plugins/commenter.vim
 source ~/.config/nvim/plugins/tree.vim
-
-" File explorer with icons
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
+source ~/.config/nvim/plugins/projectionist.vim
+source ~/.config/nvim/plugins/test.vim
 
 call plug#end()
-
 
 " Theme
 if (has("termguicolors"))
@@ -59,8 +58,8 @@ colorscheme nord
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = []
-let g:NERDTreeStatusline = ''
+" let g:NERDTreeIgnore = []
+" let g:NERDTreeStatusline = '' 
 
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -72,21 +71,29 @@ function! OpenTerminal()
   split term://bash
   resize 10
 endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
 
 " Reselet viual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
 
 " Personal favourite mappings
-let mapleader = "\<space>"
+let mapleader = " "
 
 nmap <leader>ve :edit ~/.config/nvim/init.vim<CR>
 nmap <leader>vr :source ~/.config/nvim/init.vim<CR>
 
-nnoremap <C-e> :History<CR>
-nnoremap <leader>1 :NERDTreeToggle<CR>
+nnoremap <leader>ee :History<CR>
+nnoremap <expr> <leader>n g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? 'NERDTree<CR>' : ':NERDTreeFind<CR>'
+nnoremap <leader>N :NERDTreeFind<CR>
 nnoremap <C-f> :FZF<CR>
+
+" Git mappings
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gl :Git log<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gr :Git rebase -i<CR>
+nnoremap <leader>ga :Git add .<CR>
+
 " let g:fzf_action = {
 "  \ 'ctrl-t': 'tab split',
 "  \ 'ctrl-s': 'split',
@@ -94,7 +101,8 @@ nnoremap <C-f> :FZF<CR>
 "  \
 "}
 nmap <leader>x :!xdg-open %<CR><CR>
-map gf :edit <cfile><CR>
+map <leader>ef :edit <cfile><CR>
+nnoremap <leader>et :call OpenTerminal()<CR>
 
 " set background=dark
 
