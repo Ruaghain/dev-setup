@@ -9,24 +9,27 @@
 |`<leader>1` | Toggles the tree on and off |
 |`<leader>ff` | Finds files |
 |`<leader>fb` | Lists files found in the buffer |
+|`<leader>fg` | Runs a grep for a given string in project files |
 
 ### Git
 
 |Key| Description|
 |--|--|
 |`<leader>ga` | Adds the current file |
+|`<leader>gc` | Runs the git commit command for the added files |
+|`<leader>gp` | Runs the git push command for the committed files. |
 |`<leader>gb` | Runs a git blame on the current file |
 |`<leader>gs` | Runs a git status |
+|`<leader>gl` | Runs the git log command |
 
 ## Todo's
 1. The ability to open multiple terminals to execute client and server code.
 2. The ability to connect to a database and run sql.
 3. The ability to have scratch files in a project
-4. The ability to preview markup files.
-5. Where are the logs for nvim stored?
-6. The ability to get intellisense when looking at code.
-7. The ability to debug (java, python, typescript, react etc)
-8. The ability to format my code.
+4. Where are the logs for nvim stored?
+5. The ability to get intellisense when looking at code.
+6. The ability to debug (java, python, typescript, react etc)
+7. The ability to format my code.
 
 ## Prerequisites
 
