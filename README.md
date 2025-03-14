@@ -22,6 +22,11 @@
 1. The ability to open multiple terminals to execute client and server code.
 2. The ability to connect to a database and run sql.
 3. The ability to have scratch files in a project
+4. The ability to preview markup files.
+5. Where are the logs for nvim stored?
+6. The ability to get intellisense when looking at code.
+7. The ability to debug (java, python, typescript, react etc)
+8. The ability to format my code.
 
 ## Prerequisites
 
@@ -38,6 +43,9 @@ The available instance of `nvim` on Ubuntu may not be the version required to al
 4. Install `nvim` by running the following: `sudo apt install nvim -y`
 
 You should now be running the latest (possibly unstable) version of `nvim`. The latest stable version still wasn't the correct version to be used. This could be adjusted accordingly when the stable release contains the required version.
+
+##### RipGrep
+To allow for the grep function to work as expected the ripgrep package needs to be installed. Run the following command to do this: `sudo apt-get install ripgrep`
 
 ##### Fonts
 To allow the correct icons to be displayed when using the `nvim-tree` component the relevant font needs to be installed. I used the `test` font which can be found at [NerdFonts](https://www.nerdfonts.com/)
