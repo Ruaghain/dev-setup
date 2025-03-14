@@ -6,17 +6,17 @@
 
 |Key| Description|
 |--|--|
-|<leader>1 | Toggles the tree on and off |
-|<leader>ff | Finds files |
-|<leader>fb | Lists files found in the buffer |
+|`<leader>1` | Toggles the tree on and off |
+|`<leader>ff` | Finds files |
+|`<leader>fb` | Lists files found in the buffer |
 
 ### Git
 
 |Key| Description|
 |--|--|
-|<leader>ga | Adds the current file |
-|<leader>gb | Runs a git blame on the current file |
-|<leader>gs | Runs a git status |
+|`<leader>ga` | Adds the current file |
+|`<leader>gb` | Runs a git blame on the current file |
+|`<leader>gs` | Runs a git status |
 
 ## Todo's
 1. The ability to open multiple terminals to execute client and server code.
