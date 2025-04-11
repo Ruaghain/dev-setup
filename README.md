@@ -1,5 +1,16 @@
 # neovim-setup
 
+## Installation
+
+To install these settings do the following:
+
+1. Run `mkdir ~/.config/nvim`
+2. Run `cd ~/.config/nvim`
+3. Run `git clone git@github.com:Ruaghain/neovim-setup.git .`
+4. Run `nvim`
+
+The relevant items should install by themselves.
+
 ## Mappings
 
 ### Editor
