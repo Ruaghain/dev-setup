@@ -75,7 +75,7 @@ You should now be running the latest (possibly unstable) version of `nvim`. The 
 To allow for the grep function to work as expected the ripgrep package needs to be installed. Run the following command to do this: `sudo apt-get install ripgrep`
 
 ##### Fonts
-To allow the correct icons to be displayed when using the `nvim-tree` component the relevant font needs to be installed. I used the `test` font which can be found at [NerdFonts](https://www.nerdfonts.com/)
+To allow the correct icons to be displayed when using the `nvim-tree` component the relevant font needs to be installed. I used the `MonoidNerdFont` font which can be found at [NerdFonts](https://www.nerdfonts.com/)
 
 ###### Installation
 1. Download and extract the relevant font.
@@ -90,4 +90,15 @@ To allow the correct icons to be displayed when using the `nvim-tree` component 
 
 ##### Fonts
 
+The process to get the fonts is the same as that with Ubuntu
+
 ###### Installation
+
+Once the font has been extracted do the following:
+1. Select all of the fonts
+2. Right click and select `Open`
+3. Fontbook will open
+4. Click install
+5. Go to the Terminal settings
+6. Click on `Change` for the font menu.
+7. Select the font that was recently installed.
