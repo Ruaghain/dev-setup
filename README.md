@@ -22,6 +22,19 @@
 |`<leader>gs` | Runs a git status |
 |`<leader>gl` | Runs the git log command |
 
+### Tree
+
+|Key| Description|
+|--|--|
+|`a`| Creates a new file |
+|`r`| Renames an existing file |
+|`d`| Deletes an existing file |
+|`f`| Filter the tree for the typed in text |
+|`Shift+h` | Hide or display the hidden files and folders |
+|`Shift+Ctrl+k` | Display information about the file |
+|`q` | Closes the file explorer tree |
+
+
 ## Todo's
 1. The ability to open multiple terminals to execute client and server code.
 2. The ability to connect to a database and run sql.
