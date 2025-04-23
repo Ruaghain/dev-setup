@@ -6,6 +6,9 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup({
+  git = {
+    enable = true
+  },
   sort = {
     sorter = "case_sensitive",
   },
@@ -13,7 +16,12 @@ require("nvim-tree").setup({
     width = 30,
   },
   renderer = {
-    group_empty = true,
+    highlight_git = true,
+    icons = {
+      show = {
+        git = true
+      }
+    }
   },
   filters = {
     dotfiles = true,
