@@ -39,5 +39,8 @@ return require('lazy').setup({
   "nvim-neotest/nvim-nio",
   "mfussenegger/nvim-dap",
   require("core.plugin_config.nvim-dap-ui"),
-  require("core.plugin_config.nvim-dap-python")
+  require("core.plugin_config.nvim-dap-python"),
+  require("core.plugin_config.git-signs"),
+  require("core.plugin_config.nvim-dap-text"),
+  require("core.plugin_config.aerial")
 })

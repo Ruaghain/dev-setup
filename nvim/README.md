@@ -4,9 +4,11 @@
 
 To install these settings do the following:
 
-1. Navigate to ~/.config/nvim
-3. Run `git clone git@github.com:Ruaghain/dev-setup.git .`
-4. Run `nvim`
+1. Navigate to ~/.config/
+2. Run `git init`
+3. Run `git remote add origin git@github.com:Ruaghain/dev-setup.git`
+4. Run `git checkout`
+5. Run `nvim`
 
 The relevant items should install by themselves using the `Lazy` package manager.
 
@@ -14,43 +16,11 @@ The relevant items should install by themselves using the `Lazy` package manager
 
 ### Editor
 
-|Key| Description|
-|--|--|
-|`<leader>1` | Toggles the tree on and off |
-|`<leader>ff` | Finds files |
-|`<leader>fb` | Lists files found in the buffer |
-|`<leader>fg` | Runs a grep for a given string in project files |
-|`<leader>Alt+Left (or Right) Arrow` | Increases or decreases the size of a vertical window pane |
-|`<leader>Ctrl+Up (or Down) Arrow` | Increases or decreases the size of a horizontal window pane |
-
-### Git
-
-|Key| Description|
-|--|--|
-|`<leader>ga` | Adds the current file |
-|`<leader>gc` | Runs the git commit command for the added files |
-|`<leader>gp` | Runs the git push command for the committed files. |
-|`<leader>gb` | Runs a git blame on the current file |
-|`<leader>gs` | Runs a git status |
-|`<leader>gl` | Runs the git log command |
-
-### Tree
-
-|Key| Description|
-|--|--|
-|`a`| Creates a new file |
-|`r`| Renames an existing file |
-|`d`| Deletes an existing file |
-|`f`| Filter the tree for the typed in text |
-|`Shift+h` | Hide or display the hidden files and folders |
-|`Shift+Ctrl+k` | Display information about the file |
-|`q` | Closes the file explorer tree |
-
+Most of the shortcuts have been defined in `which-key`. Using the `<leader>` key will popup a window and allow you to select the required functionality
 
 ## Todo's
-1. The ability to have scratch files in a project
-2. The ability to debug (java, python, typescript, react etc)
-3. The ability to format my code.
+1. Get the sql connections to work correctly.
+2. Get python application working in debug. 
 
 ## Prerequisites
 

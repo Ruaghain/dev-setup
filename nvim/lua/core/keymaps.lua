@@ -1,7 +1,9 @@
 local wk = require("which-key")
 local builtin = require("telescope.builtin")
+local gs = require("gitsigns")
 local dap = require("dap")
 local dapui = require("dapui")
+local scratch = require("core.scratch")
 
 wk.register({
   ["<leader>f"] = {
@@ -19,6 +21,13 @@ wk.register({
     ["h"] = { "<cmd>nohlsearch<CR>", "Clear search highlights" },
     r = { "<cmd>NvimTreeRefresh<CR>", "Refresh NvimTree" },
 
+     -- === Outline / Symbols ===
+    o = {
+      name = "+outline",
+      o = { "<cmd>AerialToggle<cr>", "Toggle Outline Window" },
+      s = { "<cmd>Telescope aerial<cr>", "Fuzzy Search Outline Symbols" },
+    },
+   
     -- === Files / Search (Telescope) ===
     f = {
       name = "+file/search",
@@ -39,16 +48,29 @@ wk.register({
     a = { "<cmd>TestSuite<CR>", "Test Suite" },
     l = { "<cmd>TestLast<CR>", "Test Last" },
 
-    -- === Git (vim-fugitive) ===
+    -- === Git (Fugitive + Gitsigns) ===
     g = {
       name = "+git",
-      b = { "<cmd>Git blame<CR>", "Git Blame" },
-      l = { "<cmd>Git log<CR>", "Git Log" },
-      c = { "<cmd>Git commit<CR>", "Git Commit" },
-      r = { "<cmd>Git rebase -i<CR>", "Git Rebase" },
-      a = { "<cmd>Git add %<CR>", "Git Add Current File" },
-      s = { "<cmd>Git status<CR>", "Git Status" },
-      p = { "<cmd>Git push<CR>", "Git Push" },
+      -- Fugitive commands
+      b = { "<cmd>Git blame<cr>", "Git Blame" },
+      l = { "<cmd>Git log<cr>", "Git Log" },
+      c = { "<cmd>Git commit<cr>", "Git Commit" },
+      r = { "<cmd>Git rebase -i<cr>", "Git Rebase" },
+      a = { "<cmd>Git add %<cr>", "Git Add Current File" },
+      s = { "<cmd>Git status<cr>", "Git Status" },
+      p = { "<cmd>Git push<cr>", "Git Push" },
+
+      -- Gitsigns hunk management
+      h = {
+        name = "+hunks",
+        s = { gs.stage_hunk, "Stage Hunk" },
+        r = { gs.reset_hunk, "Reset Hunk" },
+        u = { gs.undo_stage_hunk, "Undo Stage Hunk" },
+        p = { gs.preview_hunk, "Preview Hunk" },
+        b = { gs.blame_line, "Blame Line" },
+        d = { gs.diffthis, "Diff This" },
+        R = { gs.reset_buffer, "Reset Buffer" },
+      },
     },
 
     -- === Database (vim-dadbod) ===
@@ -63,7 +85,7 @@ wk.register({
       e = { "<Plug>(DBExecQuery)", "Run SQL Query (line/cursor)" },
       s = { "<Plug>(DBExecBuffer)", "Run SQL Query (full buffer)" },
     },
-    b = {
+    D = {
       name = "+debug",
       b = { dap.toggle_breakpoint, "Toggle Breakpoint" },
       c = { dap.continue, "Start/Continue Debugging" },
@@ -74,6 +96,11 @@ wk.register({
       u = { dapui.toggle, "Toggle Debugger UI" },
       R = { dap.run_last, "Run Last Debug Session" },
       q = { function() dap.terminate(); dapui.close() end, "Stop Debugging" },
+    },
+    s = {
+      name = "+scratch",
+      n = { scratch.new_scratch, "New Scratch Buffer" },
+      f = { scratch.floating_scratch, "Floating Scratch Buffer" },
     }
   }
 })
