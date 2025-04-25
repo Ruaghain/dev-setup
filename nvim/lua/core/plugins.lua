@@ -36,4 +36,8 @@ return require('lazy').setup({
   "christoomey/vim-tmux-navigator",
   require("core.plugin_config.database"),
   require("core.plugin_config.which-key"),
+  "nvim-neotest/nvim-nio",
+  "mfussenegger/nvim-dap",
+  require("core.plugin_config.nvim-dap-ui"),
+  require("core.plugin_config.nvim-dap-python")
 })
