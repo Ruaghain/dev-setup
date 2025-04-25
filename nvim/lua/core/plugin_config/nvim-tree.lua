@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons"
   },
-  version = "*",
   config = function()
     -- disable netrw at the very start of your init.lua
     vim.g.loaded_netrw = 1
@@ -13,6 +12,13 @@ return {
     vim.opt.termguicolors = true
 
     require("nvim-tree").setup({
+      sync_root_with_cwd = true, -- sync the root with current working dir
+
+      update_focused_file = {
+        enable = true, -- Update the focused file automatically
+        update_root = true, -- Update the tree root too
+        ignore_list = {}, -- List of filetypes to ignore (optional)
+      },
       git = {
         enable = true,
         ignore = false
@@ -38,6 +44,5 @@ return {
         dotfiles = true,
       },
     })
-
   end
 }

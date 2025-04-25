@@ -35,4 +35,5 @@ return require('lazy').setup({
   require("core.plugin_config.lsp-config"),
   "christoomey/vim-tmux-navigator",
   require("core.plugin_config.database"),
+  require("core.plugin_config.which-key"),
 })

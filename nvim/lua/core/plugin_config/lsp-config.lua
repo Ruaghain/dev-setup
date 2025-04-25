@@ -5,6 +5,18 @@ return {
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+    local on_attach = function(client, bufnr)
+      require("core.lsp_keymaps")(bufnr)
+      if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ async = true, timeout_ms = 1000 })
+          end,
+        })
+      end
+    end
+
     lspconfig.pylsp.setup({
       capabilities = capabilities,
       settings = {
@@ -25,17 +37,7 @@ return {
 
     lspconfig.ruff.setup({
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = true
-
-        -- Optional: format on save
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format({ async = false, timeout_ms = 1000 })
-          end,
-        })
-      end,
+      on_attach = on_attach,
       init_options = {
         settings = {
           args = {}, -- you can pass custom CLI args if needed
@@ -45,16 +47,7 @@ return {
 
   lspconfig.ts_ls.setup({
     capabilities = capabilities,
-    on_attach = function(client, bufnr)
-      client.server_capabilities.documentFormattingProvider = false
-
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({ timeout_ms = 1000 })
-        end,
-      })
-    end,
+    on_attach = on_attach
     })
   end
 }
