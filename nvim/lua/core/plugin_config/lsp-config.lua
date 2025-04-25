@@ -17,11 +17,31 @@ return {
             pylint = { enabled = false },
             mccabe = { enabled = false },
             yapf = { enabled = false },
-            ruff = { enabled = false },
+            ruff = { enabled = false }, -- avoid conflict
           },
         },
       },
     })
-  end
+
+    lspconfig.ruff.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = true
+
+        -- Optional: format on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ async = false, timeout_ms = 1000 })
+          end,
+        })
+      end,
+      init_options = {
+        settings = {
+          args = {}, -- you can pass custom CLI args if needed
+        },
+      },
+    })
+  end,
 }
 

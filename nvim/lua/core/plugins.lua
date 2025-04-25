@@ -1,44 +1,37 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
   end
-  return false
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'ellisonleao/gruvbox.nvim'
-  use 'nvim-tree/nvim-tree.lua'
-  use 'nvim-tree/nvim-web-devicons'
-  use 'nvim-lualine/lualine.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
-  use {
-    'nvim-telescope/telescope.nvim', 
-    tag = '0.1.8',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use({ 
-    "iamcco/markdown-preview.nvim", 
-    run = "cd app && npm install", 
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, 
-    ft = { "markdown" } 
-  })
-  use 'mfussenegger/nvim-lint'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+return require('lazy').setup({
+  require("core.plugin_config.gruvbox"),
+  require("core.plugin_config.nvim-tree"),
+  require("core.plugin_config.lualine"),
+  require("core.plugin_config.treesitter"),
+  require("core.plugin_config.vim-test"),
+  require("core.plugin_config.vim-fugitive"),
+  require("core.plugin_config.vim-rhubarb"),
+  require("core.plugin_config.telescope"),
+  require("core.plugin_config.nvim-cmp"),
+  require("core.plugin_config.nvim-lint"),
+  require("core.plugin_config.lspkind"),
+  require("core.plugin_config.mason"),
+  require("core.plugin_config.mason-lspconfig"),
+  require("core.plugin_config.lsp-config"),
+  "christoomey/vim-tmux-navigator",
+})
