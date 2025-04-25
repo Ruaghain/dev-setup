@@ -39,7 +39,5 @@ return {
       },
     })
 
-    --vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
-    vim.keymap.set('n', '<leader>1', ':NvimTreeFocus<CR>')
   end
 }

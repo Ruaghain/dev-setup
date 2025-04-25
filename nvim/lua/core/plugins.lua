@@ -34,4 +34,5 @@ return require('lazy').setup({
   require("core.plugin_config.mason-lspconfig"),
   require("core.plugin_config.lsp-config"),
   "christoomey/vim-tmux-navigator",
+  require("core.plugin_config.database"),
 })

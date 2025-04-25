@@ -48,12 +48,10 @@ The relevant items should install by themselves using the `Lazy` package manager
 
 
 ## Todo's
-2. The ability to connect to a database and run sql.
-3. The ability to have scratch files in a project
-4. Where are the logs for nvim stored?
-5. The ability to get intellisense when looking at code.
-6. The ability to debug (java, python, typescript, react etc)
-7. The ability to format my code.
+1. The ability to connect to a database and run sql.
+2. The ability to have scratch files in a project
+3. The ability to debug (java, python, typescript, react etc)
+4. The ability to format my code.
 
 ## Prerequisites
 

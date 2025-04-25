@@ -42,6 +42,20 @@ return {
         },
       },
     })
-  end,
+
+  lspconfig.ts_ls.setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ timeout_ms = 1000 })
+        end,
+      })
+    end,
+    })
+  end
 }
 
