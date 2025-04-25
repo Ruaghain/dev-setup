@@ -15,6 +15,7 @@ wk.register({
     w = { "<cmd>w<CR>", "Save file" },
     q = { "<cmd>q<CR>", "Quit" },
     ["h"] = { "<cmd>nohlsearch<CR>", "Clear search highlights" },
+    r = { "<cmd>NvimTreeRefresh<CR>", "Refresh NvimTree" },
 
     -- === Files / Search (Telescope) ===
     f = {
@@ -35,7 +36,6 @@ wk.register({
     T = { "<cmd>TestFile<CR>", "Test File" },
     a = { "<cmd>TestSuite<CR>", "Test Suite" },
     l = { "<cmd>TestLast<CR>", "Test Last" },
-    g = { "<cmd>TestVisit<CR>", "Test Visit" },
 
     -- === Git (vim-fugitive) ===
     g = {
