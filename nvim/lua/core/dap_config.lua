@@ -46,6 +46,23 @@ dap.configurations.python = {
     end,
     cwd = "${workspaceFolder}",
   },
+  {
+    type = "python",
+    request = "attach",
+    name = "Attach to Flask",
+    connect = {
+      host = "127.0.0.1",
+      port = 5678,
+    },
+    mode = "remote",
+    cwd = "${workspaceFolder}",
+    pathMappings = {
+      {
+        localRoot = "${workspaceFolder}",
+        remoteRoot = "${workspaceFolder}",
+      },
+    },
+  },
 }
 
 -- Optional: Auto-open dapui when debugging starts
