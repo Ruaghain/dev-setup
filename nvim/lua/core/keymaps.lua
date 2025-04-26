@@ -4,6 +4,12 @@ local gs = require("gitsigns")
 local dap = require("dap")
 local dapui = require("dapui")
 local scratch = require("core.scratch")
+local map = vim.keymap.set
+
+-- For SQL execution mappings
+map("n", "<leader>ee", "<Plug>(DBExecQuery)", { desc = "Run SQL query (line/cursor)" })
+map("v", "<leader>ee", "<Plug>(DBExecVisual)", { desc = "Run SQL query (visual selection)" })
+map("n", "<leader>eb", "<Plug>(DBExecBuffer)", { desc = "Run SQL query (full buffer)" })
 
 wk.register({
   ["<leader>f"] = {
@@ -78,12 +84,6 @@ wk.register({
       name = "+database",
       b = { "<cmd>DBUIToggle<CR>", "Toggle DB UI" },
       v = { "<cmd>DBUI<CR>", "Open DBUI" },
-      e = { "<cmd>DBExecQuery<CR>", "Execute Query" }
-    },
-    e = {
-      name = "+execute sql",
-      e = { "<Plug>(DBExecQuery)", "Run SQL Query (line/cursor)" },
-      s = { "<Plug>(DBExecBuffer)", "Run SQL Query (full buffer)" },
     },
     D = {
       name = "+debug",

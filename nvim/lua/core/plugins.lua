@@ -42,5 +42,6 @@ return require('lazy').setup({
   require("core.plugin_config.nvim-dap-python"),
   require("core.plugin_config.git-signs"),
   require("core.plugin_config.nvim-dap-text"),
-  require("core.plugin_config.aerial")
+  require("core.plugin_config.aerial"),
+  require("core.plugin_config.project")
 })
