@@ -73,5 +73,5 @@ Once the font has been extracted do the following:
 ### Installing LSP's
 
 To allow to relevant programming languages to work with the LSP's they need to be installed. Within neovim type the following:
-* `:LspInstall pylsp`
-* `:LspInstall ruff`
+* `:MasonInstall pylsp`
+* `:MasonInstall ruff`

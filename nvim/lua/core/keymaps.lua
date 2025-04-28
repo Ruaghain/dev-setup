@@ -101,7 +101,17 @@ wk.register({
       name = "+scratch",
       n = { scratch.new_scratch, "New Scratch Buffer" },
       f = { scratch.floating_scratch, "Floating Scratch Buffer" },
-    }
-  }
+    },
+    b = {
+      name = "+bookmarks", -- group name
+      m = { "<cmd>BookmarkToggle<cr>", "Toggle Bookmark" },
+      a = { "<cmd>BookmarkAnnotate<cr>", "Annotate Bookmark" },
+      c = { "<cmd>BookmarkClear<cr>", "Clear All Bookmarks in Buffer" },
+      n = { "<cmd>BookmarkNext<cr>", "Next Bookmark" },
+      p = { "<cmd>BookmarkPrev<cr>", "Previous Bookmark" },
+      s = { "<cmd>Telescope vim_bookmarks current_file<cr>", "Search Bookmarks (Current File)" },
+      S = { "<cmd>Telescope vim_bookmarks all<cr>", "Search Bookmarks (All Files)" },
+    },
+  },
 })
 
