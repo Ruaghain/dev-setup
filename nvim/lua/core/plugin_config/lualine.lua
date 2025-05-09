@@ -24,17 +24,41 @@ return {
       },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
+        lualine_b = {'branch', 'diff', 
+          {
+            'diagnostics',
+            sources = { 'nvim_diagnostic' },
+            sections = { 'error', 'warn', 'info', 'hint' },
+            symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+            colored = true,
+            update_in_insert = false,
+            always_visible = false,
+          },
+        },
+        lualine_c = {
+          {
+            function()
+              return vim.fn.expand("%:~:.") ~= "" and vim.fn.expand("%:~:.") or "[No Name]"
+            end,
+            icon = "📁",
+            separator = " ",
+          },
+        },    
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
-        lualine_z = {'location'}
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = {
+           {
+            function()
+              return vim.fn.expand("%:~:.") ~= "" and vim.fn.expand("%:~:.") or "[No Name]"
+            end,
+            icon = "📁",
+            separator = " ",
+          },
+        },
         lualine_y = {},
         lualine_z = {}
       },
